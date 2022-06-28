@@ -1,0 +1,37 @@
+.thumbnail{
+    margin-right: 20px;
+  }
+  .media-object{
+    width: 72px;
+    height: 72px;
+  }
+  .added-product-name{
+    color:black;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  .added-product-brand{
+    color:black;
+    text-decoration: none;
+    font-size: 0.9rem;
+
+
+  }
+  .continue-shopping{
+    width: 15rem;
+  }
+  @media screen and (max-width:900px){
+    .added-product-name{
+      display: none;
+    }
+    .added-product-brand{
+      display: none;
+    }
+
+  }
+  @media screen and (max-width:630px){
+    .media-object{
+      width: 100%;
+      height:100%
+    }
+  }
