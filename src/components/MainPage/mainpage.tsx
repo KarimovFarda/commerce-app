@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../navbar'
 import './mainpageStyle.scss'
-import brands from '../../brands'
+import brands from '../../assets/images/brands'
 import Pagination from './pagination'
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -11,13 +11,14 @@ import { useDispatch } from 'react-redux'
 import { addFavouriteProducts } from '../../redux/favouritesAction'
 import "react-multi-carousel/lib/styles.css";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import Footer from '../footer'
 export const MainPage = () => {
   const [info, setInfo] = React.useState<any>()
   const [brand, setBrand] = useState<any>()
-  const history = useHistory()
-  useEffect(() => {
+  const navigate =useNavigate()
+
+useEffect(() => {
   fetch("https://api.npoint.io/b2204137dc22699575be").then(response => response.json()).then(data => setInfo(data))
 }, [])
   const dispatch = useDispatch()
@@ -96,7 +97,7 @@ export const MainPage = () => {
                     <p>On Sale</p>
                   </div>
                   <div className="product_image" style={{ height: "250px" }} >
-                    <img alt="product" onClick={() => history.push(`products/${index + 1}`)} src={item.image_link} />
+                    <img alt="product" onClick={() => navigate(`products/${index + 1}`)} src={item.image_link} />
                     <div className="product_buttons">
                       <button className="product_heart" onClick={() => {addFavouriteProducts({
                           name: item.name,
@@ -109,7 +110,7 @@ export const MainPage = () => {
                           index : index
                         }, 1)(dispatch)
                       }}><i className="fa fa-heart"></i></button>
-                      <button className="add_to_cart" onClick={() => history.push(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
+                      <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
                       <div className="quick_view">
                         <h6>{item.brand === null ? "Unknown" : item.brand}</h6>
                       </div>
@@ -142,7 +143,7 @@ export const MainPage = () => {
                           index : index
                         }, 1)(dispatch)
                       }}><i className="fa fa-heart"></i></button>
-                      <button className="add_to_cart" onClick={() => history.push(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
+                      <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
                     </div>
                   </div>
                 </li>

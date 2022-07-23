@@ -1,13 +1,14 @@
 import React,{useState} from 'react'
 import './registerLoginStyle.scss'
 import axios from "axios"
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 export const Register = () => {
     const [firstname,setFirstname] = useState<string>("")
     const [lastname,setLastname] = useState<string>("")
     const [email,setEmail] = useState<string>("")
     const [password,setPassword] = useState<string>("")
-    const history = useHistory()
+    const navigate =useNavigate()
     const FormSubmitted = () => {
         axios.post("http://localhost:8502/register", {
             firstname: firstname,
@@ -16,7 +17,7 @@ export const Register = () => {
             password: password
           })
             .then((response) => {
-                history.push("/login")
+                navigate("/login")
         })
     }
     return (
@@ -41,6 +42,9 @@ export const Register = () => {
                             <input className="auth-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
                         </div>
                         <input className="auth-input btn-register-button solid"  type="submit" value="Register" />
+
+                        <p>Do you have account? <Link to="/login" style={{textDecoration:"none"}}> Login</Link></p>
+
                     </form>
                 </div>
             </div>

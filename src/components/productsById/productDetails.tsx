@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import ProductPageNavbar from './productPageNavbar'
 import './productDetailsStyle.scss'
 import Footer from '../footer'
@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 export const ProductDetails = () => {
   const [product, setProduct] = useState<any>()
   let [amount, setAmount] = useState<number>(1)
-  const history = useHistory()
+  const navigate =useNavigate()
   const [data, setData] = useState<any>([])
   const [quantity, setQuantity] = useState<any>([])
   const [added, setAdded] = useState<boolean>(false)
@@ -17,6 +17,7 @@ export const ProductDetails = () => {
   useEffect(() => {
     fetch("https://api.npoint.io/b2204137dc22699575be").then(response => response.json()).then(data => setProduct(data))
   }, [])
+  
   const [total, setTotal] = useState<number>(0)
   const params = useParams();
   const id = (Object(params).id)
@@ -56,11 +57,9 @@ export const ProductDetails = () => {
               <i className="fas fa-plus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount = amount + 1)}></i>
             </div>
             <br />
-            <a className={added === true ? "added-btn " : "add-btn"} onClick={(e) => {
+            <a href="#test" className={added === true ? "added-btn " : "add-btn"} onClick={(e) => {
               setAdded(true)
               setTotalPrice(totalPrice + product[id - 1].price * amount)
-              console.log(product[id - 1].price * amount)
-              console.log(e)
               added === false ?
                 data.push({
                   name: product[id - 1].name,
@@ -93,7 +92,7 @@ export const ProductDetails = () => {
             return (
               <li className="cards__item" onClick={() => setAmount(1)}>
                 <div className="card">
-                  <div className="card__image card__image--flowers" onClick={() => { console.log(item); history.push(`/products/${directed + 1}`); setAdded(false) }} style={{
+                  <div className="card__image card__image--flowers" onClick={() => { console.log(item); navigate(`/products/${directed + 1}`); setAdded(false) }} style={{
                     backgroundSize: "cover", height: "380px",backgroundImage: `url(${product[item].image_link})`
                   }}></div>
                   <div className="card__content">

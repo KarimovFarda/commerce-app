@@ -1,9 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 export const HeaderCarousel = () => {
     const [sliderInfo, setSliderInfo] = useState<any>()
-    useEffect(() => {
-        fetch("https://api.npoint.io/4d9c1abe5efb1278d1d3").then(response => response.json()).then(data => setSliderInfo(data))
-    })
+    async function getSlider(){
+        try {
+            const response = await fetch('https://api.npoint.io/f89737dc8cf6e47a9636');
+            if (!response.ok) {
+              throw new Error(`Error! status: ${response.status}`);
+            }
+        
+            const result = await response.json();
+            setSliderInfo(result);
+          } catch (err) {
+            console.log(err);
+          }
+    }
+
+    getSlider()
     return (
         <div id="slider" className="mb-4">
             <div className="slides">
@@ -32,6 +44,7 @@ export const HeaderCarousel = () => {
                     <li></li>
                     <li></li>
                     <li></li>
+
                 </ul>
             </div>
         </div>

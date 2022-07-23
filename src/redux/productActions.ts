@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import { IProducts, IProductsArr } from "../models/types";
-import { HttpClient } from "../components/service/httpRequest";
+import { IProducts, IProductsArr } from "../utils/models/types";
+import { HttpClient } from "../utils/service/httpRequest";
 import { PRODUCTS_ACTIONS } from "./constants";
 
 interface IActionGetProducts {

@@ -1,4 +1,4 @@
-import { IProductsArr } from "../models/types";
+import { IProductsArr } from "../utils/models/types";
 import { Actions } from "./productActions";
 import { PRODUCTS_ACTIONS } from "./constants";
 

@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import './registerLoginStyle.scss'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 export const Login = () => {
-const history = useHistory()
+const navigate =useNavigate()
 const [email,setEmail] = useState<string>("")
 const [password,setPassword] = useState<string>("")
 const LoginFormSubmitted = () => {
@@ -12,7 +13,7 @@ const LoginFormSubmitted = () => {
     password: password,
   }).then((response) => {
     localStorage.setItem("token", response.data.token);
-    history.push("/products");
+    navigate("/products");
   })
 }
   return (
@@ -30,6 +31,8 @@ const LoginFormSubmitted = () => {
               <input className="auth-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
             </div>
             <input className="auth-input btn-button solid" type="submit" value="Login" />
+
+            <p>Don't have an account? <Link to="/" style={{textDecoration:"none"}}> Register</Link></p>
           </form>
         </div>
       </div>

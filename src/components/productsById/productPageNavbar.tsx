@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import './productPageNavbarStyle.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { addProducts, getProducts, deleteProducts } from '../../redux/productActions';
-import {  useHistory } from 'react-router'
+import {  useNavigate } from 'react-router'
 export const ProductPageNavbar = (props: any) => {
   const [display, setDisplay] = useState<string>("none")
   const state = useSelector((state: any) => state);
   const dispatch = useDispatch();
-  const history = useHistory()
+  const navigate =useNavigate()
   useEffect(() => {
     getProducts(1)(dispatch);
   }, [state]);
@@ -17,21 +17,21 @@ export const ProductPageNavbar = (props: any) => {
                 productInfo: props.product,
                 totalPrice: props.totalPrice
               }, 1)(dispatch);
-              history.push('/shopping')
+              navigate('/shopping')
   }
   const addBasket = () => {
     addProducts({
       productInfo: props.product,
       totalPrice: props.totalPrice
     }, 1)(dispatch);
-    history.push('/shopping')
+    navigate('/shopping')
   }
   return (
     <div>
       <nav className="product-navbar">
         <div className="contain">
           <ul className="navbar-left">
-            <li className="list"><a href="/products">Home</a></li>
+            <li className="list"><a href="/">Home</a></li>
           </ul>
           <ul className="navbar-right" onMouseOver={(e) => { e.preventDefault(); setDisplay("inline-block") }} onMouseOut={() => setDisplay("none")}>
             <li className="list" ><button id="cart" ><i className="fa fa-shopping-cart"></i> Cart <span className="badge">{props.amount}</span></button></li>

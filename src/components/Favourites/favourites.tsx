@@ -4,10 +4,10 @@ import ShoppingNavbar from '../ShoppingCart/shoppingNavbar'
 import { deleteFavouriteProducts } from '../../redux/favouritesAction'
 import { useDispatch } from 'react-redux'
 import Footer from '../footer'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 export const Favourites = () => {
     const [favourites, setFavourites] = useState<any>()
-    const history = useHistory()
+    const navigate = useNavigate()
     useEffect(() => {
         fetch("http://localhost:8502/favourites").then(response => response.json()).then(data => setFavourites(data))
     }, [favourites])
@@ -24,7 +24,7 @@ export const Favourites = () => {
                 </div>
                 <div className="row">
                     {favourites && favourites.map((item: any) => {
-                        if (item.rating == "null") { item.rating = 0 }
+                        if (item.rating === "null") { item.rating = 0 }
                         return (
                             <div className="col-md-6 col-lg-4">
                                 <div className="single-product">
@@ -32,7 +32,7 @@ export const Favourites = () => {
                                         <img src={item.image} alt="" />
                                         <div className="overlay">
                                             <div className="item">
-                                                <button className="icon-button" onClick={() => history.push(`products/${item.index + 1}`)}><i className="far fa-eye"></i></button>
+                                                <button className="icon-button" onClick={() => navigate(`products/${item.index + 1}`)}><i className="far fa-eye"></i></button>
                                                 <span className="text-button">Go to Product</span>
                                             </div>
                                             <div className="item">
@@ -52,13 +52,13 @@ export const Favourites = () => {
                                     </div>
                                     <div className="author-stars">
                                         <div className="author">
-                                            <a href="#" className="name">Product Type : {String(item.productType)[0].toUpperCase() + String(item.productType).slice(1)}</a>
+                                            <a href="#test" className="name">Product Type : {String(item.productType)[0].toUpperCase() + String(item.productType).slice(1)}</a>
                                         </div>
                                         <div className="stars">
                                             <span>{new Array(Math.floor(Number(item.rating))).fill(0).map((e) => <i className="fas fa-star"></i>)
                                             }</span><span>{item.rating - Math.floor(Number(item.rating)) > 0 ? <i className="fas fa-star-half-alt"></i> : ""}</span><span>
                                                 {Math.floor(Number(item.rating)) < 5 && item.rating - Math.floor(Number(item.rating)) > 0 ? new Array(4 - Math.floor(Number(item.rating))).fill(0).map((e) => <i className="far fa-star"></i>
-                                                ) : Math.floor(Number(item.rating)) < 5 && item.rating - Math.floor(Number(item.rating)) == 0 ? new Array(5 - Math.floor(Number(item.rating))).fill(0).map((e) => <i className="far fa-star"></i>
+                                                ) : Math.floor(Number(item.rating)) < 5 && item.rating - Math.floor(Number(item.rating)) === 0 ? new Array(5 - Math.floor(Number(item.rating))).fill(0).map((e) => <i className="far fa-star"></i>
                                                 ) : ""}</span>
                                         </div>
                                     </div>

@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import brands from '../../brands'
+import brands from '../../assets/images/brands'
 export const CardSlider = () => {
   const responsive = {
     superLargeDesktop: {
@@ -30,6 +30,7 @@ export const CardSlider = () => {
           </div>
         )
       })}
+     
     </Carousel>
   )
 }

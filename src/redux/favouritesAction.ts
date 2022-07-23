@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import { IFavouriteProducts, IFavouriteProductsArr } from "../models/types";
-import { HttpClient } from "../components/service/httpRequest";
+import { IFavouriteProducts, IFavouriteProductsArr } from "../utils/models/types";
+import { HttpClient } from "../utils/service/httpRequest";
 import { FAVOURITE_PRODUCTS_ACTIONS } from "./constants";
 
 interface IActionGetProducts {
