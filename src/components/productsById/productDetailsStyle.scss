@@ -367,6 +367,13 @@ footer h3 {
 .suggested_product_cards {
   width: 95%;
   margin: 0 auto;
+
+  .cards__item{
+    padding: 15px 5px;
+    .card{
+      max-height: 450px;
+    }
+  }
 }
 
 

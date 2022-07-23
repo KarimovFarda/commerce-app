@@ -25,6 +25,7 @@ export const Favourites = () => {
                 <div className="row">
                     {favourites && favourites.map((item: any) => {
                         if (item.rating === "null") { item.rating = 0 }
+                        console.log(item)
                         return (
                             <div className="col-md-6 col-lg-4">
                                 <div className="single-product">
@@ -32,7 +33,7 @@ export const Favourites = () => {
                                         <img src={item.image} alt="" />
                                         <div className="overlay">
                                             <div className="item">
-                                                <button className="icon-button" onClick={() => navigate(`products/${item.index + 1}`)}><i className="far fa-eye"></i></button>
+                                                <button className="icon-button" onClick={() => navigate(`../products/${item.index + 1}`)}><i className="far fa-eye"></i></button>
                                                 <span className="text-button">Go to Product</span>
                                             </div>
                                             <div className="item">

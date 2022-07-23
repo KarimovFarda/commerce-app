@@ -106,6 +106,7 @@ export const MainPage = () => {
                     <img alt="product" onClick={() => navigate(`products/${index + 1}`)} src={item.image_link} />
                     <div className="product_buttons">
                       <button className="product_heart" onClick={() => {
+                        console.log(itemsPerPage * (currentPage - 1) + index)
                         addFavouriteProducts({
                           name: item.name,
                           brand: item.brand,
@@ -114,7 +115,7 @@ export const MainPage = () => {
                           date: String(item.created_at),
                           image: String(item.image_link),
                           productType: String(item.product_type),
-                          index: index
+                          index: itemsPerPage * (currentPage - 1) + index
                         }, 1)(dispatch)
                       }}><i className="fa fa-heart"></i></button>
                       <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
@@ -148,7 +149,7 @@ export const MainPage = () => {
                           date: String(item.created_at),
                           image: String(item.image_link),
                           productType: String(item.product_type),
-                          index: index
+                          index: itemsPerPage * currentPage + index
                         }, 1)(dispatch)
                       }}><i className="fa fa-heart"></i></button>
                       <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
