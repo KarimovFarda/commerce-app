@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../navbar'
 import './mainpageStyle.scss'
 import brands from '../../assets/images/brands'
-import Pagination from './pagination'
+import PaginationComponent from './pagination'
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import HeaderCarousel from './carousel'
@@ -12,6 +12,7 @@ import { addFavouriteProducts } from '../../redux/favouritesAction'
 import "react-multi-carousel/lib/styles.css";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { useNavigate } from 'react-router';
+import axios from 'axios'
 import Footer from '../footer'
 export const MainPage = () => {
   const [info, setInfo] = React.useState<any>()
@@ -19,8 +20,12 @@ export const MainPage = () => {
   const navigate =useNavigate()
 
 useEffect(() => {
-  fetch("https://api.npoint.io/b2204137dc22699575be").then(response => response.json()).then(data => setInfo(data))
-}, [])
+  const fetchData = async () => {
+      const response = await axios.get(`https://api.npoint.io/b2204137dc22699575be`);
+      setInfo(response.data);
+  }
+  fetchData();
+}, []);
   const dispatch = useDispatch()
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -122,10 +127,10 @@ useEffect(() => {
                     </div>
                     <div className="product_price">
                       <span className="price_new">${item.price}</span>
-                      <p>Rating :  <span>{[...Array(Math.floor(item.rating))].map((e) => <i className="fas fa-star"></i>)
+                      <p>Rating :  <span>{[...Array(Math.floor(item.rating))].map((e) => <i key={e} className="fas fa-star"></i>)
                       }</span><span>{item.rating - Math.floor(item.rating) > 0 ? <i className="fas fa-star-half-alt"></i> : ""}</span><span>
-                          {Math.floor(item.rating) < 5 && item.rating - Math.floor(item.rating) > 0 ? [...Array(4 - Math.floor(item.rating))].map((e) => <i className="far fa-star"></i>
-                          ) : Math.floor(item.rating) < 5 && item.rating - Math.floor(item.rating) === 0 ? [...Array(5 - Math.floor(item.rating))].map((e) => <i className="far fa-star"></i>
+                          {Math.floor(item.rating) < 5 && item.rating - Math.floor(item.rating) > 0 ? [...Array(4 - Math.floor(item.rating))].map((e) => <i key={e} className="far fa-star"></i>
+                          ) : Math.floor(item.rating) < 5 && item.rating - Math.floor(item.rating) === 0 ? [...Array(5 - Math.floor(item.rating))].map((e) => <i key={e} className="far fa-star"></i>
                           ) : ""}</span></p>
                     </div>
                     <div className="product_desc">
@@ -156,7 +161,7 @@ useEffect(() => {
       <div className="card-footer">
         <div className="row">
           <div className="col-12 ">
-            <Pagination
+            <PaginationComponent
               totalPageCount={totalPageCount}
               handlePageChange={setCurrentPage}
               currentPage={currentPage}

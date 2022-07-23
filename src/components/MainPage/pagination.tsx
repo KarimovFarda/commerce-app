@@ -1,22 +1,31 @@
 import React from 'react'
-export const Pagination = ({ totalPageCount, handlePageChange, currentPage }: any) => {
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+export const PaginationComponent = ({ totalPageCount, handlePageChange, currentPage }: any) => {
     var elements = [];
     for (var x = totalPageCount - 1; x >= 0; x--) {
         elements.push(x)
     }
+
+    console.log(elements)
     return (
-        <nav aria-label="Page navigation example" className="covid-pagination">
-            <ul className="pagination justify-content-center mb-0">
-                <li className="page-item">
-                    <button style={{ height: "50px" }} onClick={() => handlePageChange(
-                        Math.max(currentPage - 1, 1))}
-                        className="page-link font-weight-bold text-dark">Previous</button></li>
-                {elements.reverse().map(num => (<li className={`page-item ${num + 1 === currentPage && 'active'}`}  key={num}>
-                    <button style={{height: "50px" }} onClick={() => handlePageChange(num + 1)} className="page-link bg-light font-weight-bold text-dark">{num + 1} </button></li>
-                ))}
-                <li className="page-item"><button style={{ height: "50px" }} onClick={() => handlePageChange(
-                    Math.min(currentPage + 1, totalPageCount)
-                )} className="page-link font-weight-bold text-dark">Next</button></li>    </ul>
-        </nav>)
+        <Stack spacing={2} >
+
+            <Pagination count={elements.reverse().length} onClick={(e) => {
+                const target = e.target as HTMLInputElement;
+                if (target.innerHTML.includes("path")) {
+                    if (target.innerHTML.includes("M15")) {
+                        handlePageChange(Math.max(currentPage - 1, 1));
+                    } else {
+                        handlePageChange(Math.min(currentPage + 1, totalPageCount));
+                    }
+                } else {
+                    handlePageChange(+target.innerHTML[0]);
+                }
+            }} />
+
+        </Stack>
+    )
+
 }
-export default Pagination
+export default PaginationComponent

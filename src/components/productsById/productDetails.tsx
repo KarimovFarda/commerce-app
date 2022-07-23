@@ -6,6 +6,7 @@ import Footer from '../footer'
 import Comments from './comments'
 import { getProducts } from '../../redux/productActions';
 import { useDispatch } from "react-redux";
+import axios from 'axios'
 export const ProductDetails = () => {
   const [product, setProduct] = useState<any>()
   let [amount, setAmount] = useState<number>(1)
@@ -15,9 +16,12 @@ export const ProductDetails = () => {
   const [added, setAdded] = useState<boolean>(false)
   const dispatch = useDispatch();
   useEffect(() => {
-    fetch("https://api.npoint.io/b2204137dc22699575be").then(response => response.json()).then(data => setProduct(data))
-  }, [])
-  
+    const fetchData = async () => {
+        const response = await axios.get(`https://api.npoint.io/b2204137dc22699575be`);
+        setProduct(response.data);
+    }
+    fetchData();
+  }, []);
   const [total, setTotal] = useState<number>(0)
   const params = useParams();
   const id = (Object(params).id)

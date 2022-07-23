@@ -1,26 +1,20 @@
-import { useState } from 'react'
-export const HeaderCarousel = () => {
-    const [sliderInfo, setSliderInfo] = useState<any>()
-    async function getSlider(){
-        try {
-            const response = await fetch('https://api.npoint.io/f89737dc8cf6e47a9636');
-            if (!response.ok) {
-              throw new Error(`Error! status: ${response.status}`);
-            }
-        
-            const result = await response.json();
-            setSliderInfo(result);
-          } catch (err) {
-            console.log(err);
-          }
-    }
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 
-    getSlider()
+export const HeaderCarousel = () => {
+    const [sliderInfo, setSliderInfo] = useState<any>("")
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await axios.get(`https://api.npoint.io/f89737dc8cf6e47a9636`);
+            setSliderInfo(response.data);
+        }
+        fetchData();
+      }, []);
     return (
         <div id="slider" className="mb-4">
             <div className="slides">
                 {sliderInfo && sliderInfo.map((item: any, index: number) => {
-                    return (
+                     return (
                         <div key={index} className="slider">
                             <div className="legend"></div>
                             <div className="content">

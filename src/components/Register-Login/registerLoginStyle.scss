@@ -518,5 +518,15 @@ width:500px
 } 
 
 .navbar-nav{
-  column-gap: 5px;
+  column-gap: 10px;
+}
+
+.card-footer{
+  background-color: transparent !important;
+  border: none !important;
+}
+
+
+.MuiPagination-ul{
+  justify-content: center;
 }
