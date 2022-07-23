@@ -59,7 +59,7 @@ export const ProductPageNavbar = (props: any) => {
               )
             })}
           </ul>
-          <a className="button" href="#test" onClick={state.products.length > 0 ? updateBasket : addBasket
+          <a className="button" href="/shopping" onClick={state.products.length > 0 ? updateBasket : addBasket
           }>Checkout</a>
         </div>
       </div>

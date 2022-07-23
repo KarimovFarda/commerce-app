@@ -126,10 +126,10 @@ export const MainPage = () => {
                   </div>
                   <div className="product_values">
                     <div className="product_title">
-                      <h5>{item.name}</h5>
+                      <h5>{item.name.length > 50 ? item.name.slice(0, 50) + "..." : item.name}</h5>
                     </div>
                     <div className="product_price">
-                      <span className="price_new">${item.price}</span>
+                      <span className="price_new">Price : ${item.price}</span>
                       <p>Rating :  <span>{[...Array(Math.floor(item.rating))].map((e) => <i key={e} className="fas fa-star"></i>)
                       }</span><span>{item.rating - Math.floor(item.rating) > 0 ? <i className="fas fa-star-half-alt"></i> : ""}</span><span>
                           {Math.floor(item.rating) < 5 && item.rating - Math.floor(item.rating) > 0 ? [...Array(4 - Math.floor(item.rating))].map((e) => <i key={e} className="far fa-star"></i>

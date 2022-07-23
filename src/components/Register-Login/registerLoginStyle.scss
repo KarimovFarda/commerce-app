@@ -531,9 +531,24 @@ form.sign-in-form {
 
   }
 }
-
+.cardSlider:hover{
+  p{
+    color: #f55a5a;
+  }
+}
 .navbar-nav {
   column-gap: 10px;
+  li:hover{
+    a{
+      color: #f55a5a !important;
+    }
+    span{
+      color: #f55a5a;
+    }
+    svg path{
+      fill: #f55a5a;
+    }
+  }
 }
 
 .card-footer {
