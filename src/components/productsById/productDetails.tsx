@@ -26,11 +26,11 @@ export const ProductDetails = () => {
   const [totalPrice, setTotalPrice] = useState<any>(0)
   useEffect(() => {
     getProducts(1)(dispatch);
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
     setData(data)
     setQuantity(quantity)
-  }, [total])
+  }, [data, quantity, total])
   return (
     <div style={product ? {} : { position: "fixed" }}>
       <div>
@@ -52,7 +52,7 @@ export const ProductDetails = () => {
               <h5> Amount : </h5>
             </div>
             <div className="select-dropdown ">
-              <i className="fas fa-minus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount == 1 ? 1 : amount = amount - 1)}></i>
+              <i className="fas fa-minus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount === 1 ? 1 : amount = amount - 1)}></i>
               <span style={{ fontSize: "1.5rem", fontWeight: "bold" }} >{amount}</span>
               <i className="fas fa-plus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount = amount + 1)}></i>
             </div>

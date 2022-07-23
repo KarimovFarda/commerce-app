@@ -30,7 +30,7 @@ export const ShoppingCart = () => {
   return (
     <div>
       <ShoppingNavbar />
-      {info == undefined ?
+      {info === undefined ?
         <Backdrop className={classes.backdrop} open>
           <CircularProgress color="inherit" style={{ marginRight: "0.5rem" }} />
           <h3 className="data-loading ml-3">  Loading ... </h3>
@@ -47,7 +47,7 @@ export const ShoppingCart = () => {
             </tr>
           </thead>
           <tbody>
-            {info && info[0] != undefined &&
+            {info && info[0] !== undefined &&
               info[0].productInfo.map((item: any, index: number) => {
                 return (
                   <tr onLoad={() => setTotalPrice(totalPrice + item.price * item.amount)}>
@@ -68,7 +68,7 @@ export const ShoppingCart = () => {
                     <td className="col-sm-2 col-md-2">
                       <button type="button" className="btn btn-danger" onClick={(e) => {
                         e.preventDefault(); info[0].productInfo.splice(index, 1); editProducts(info[0], userId, info[0]._id)(dispatch);
-                        ; window.location.reload(false)}}>
+                        ; window.location.reload()}}>
                         <span className="fa fa-remove"></span> Remove
                       </button></td>
                   </tr>

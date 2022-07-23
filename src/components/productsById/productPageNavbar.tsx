@@ -10,7 +10,7 @@ export const ProductPageNavbar = (props: any) => {
   const navigate =useNavigate()
   useEffect(() => {
     getProducts(1)(dispatch);
-  }, [state]);
+  }, [dispatch, state]);
   const updateBasket = () => {
     deleteProducts(1,state.products[0]._id)(dispatch);         
          addProducts({
@@ -59,7 +59,7 @@ export const ProductPageNavbar = (props: any) => {
               )
             })}
           </ul>
-          <a className="button" onClick={state.products.length > 0 ? updateBasket : addBasket
+          <a className="button" href="#test" onClick={state.products.length > 0 ? updateBasket : addBasket
        }>Checkout</a>
         </div>
       </div>
