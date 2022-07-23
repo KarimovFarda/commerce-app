@@ -25,8 +25,8 @@ export const ProductDetails = () => {
   const [total, setTotal] = useState<number>(0)
   const params = useParams();
   const id = (Object(params).id)
-  const random = product && Math.floor(5 + Math.random() * (product.length - 5))
-  const arr = [random - 1, random, random + 1, random + 2];
+  const arr = [+id + 1, +id + 2, +id + 3, +id + 4];
+  console.log(params)
   const [totalPrice, setTotalPrice] = useState<any>(0)
   useEffect(() => {
     getProducts(1)(dispatch);
@@ -56,9 +56,9 @@ export const ProductDetails = () => {
               <h5> Amount : </h5>
             </div>
             <div className="select-dropdown ">
-              <i className="fas fa-minus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount === 1 ? 1 : amount = amount - 1)}></i>
+              <i className="fas fa-minus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount === 1 ? 1 : amount - 1)}></i>
               <span style={{ fontSize: "1.5rem", fontWeight: "bold" }} >{amount}</span>
-              <i className="fas fa-plus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount = amount + 1)}></i>
+              <i className="fas fa-plus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount + 1)}></i>
             </div>
             <br />
             <a href="#test" className={added === true ? "added-btn " : "add-btn"} onClick={(e) => {
@@ -113,9 +113,7 @@ export const ProductDetails = () => {
       <h2 style={{ paddingLeft: "2rem", marginTop: "2rem" }}>Comments</h2>
       <Comments />
       <Footer padding="0 0 20px 0" />
-      <footer className="favourites-footer">
-        <p className="footer-paragraph">Copyright &copy; 2021 <b> All Rights Reserved.</b></p>
-      </footer>
+      
     </div>
   )
 }

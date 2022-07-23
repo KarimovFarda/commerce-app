@@ -56,7 +56,7 @@ export const MainPage = () => {
   const classes = useStyles();
   const productsArray = info
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 70;
+  const itemsPerPage = 25;
   const [totalPageCount, SetTotalPageCount] = useState<number>(0);
   const [query, setQuery] = useState('');
   const computedRecords = (() => {
@@ -74,6 +74,7 @@ export const MainPage = () => {
       SetTotalPageCount(totalCount)
     }
   }, [productsArray, query.length, itemsPerPage]);
+
   return (
     <div>
       <Navbar value={query} SearchElement={(element: any) => setQuery(element)} />
@@ -97,7 +98,7 @@ export const MainPage = () => {
           <ul className="product_list list">
             {info && computedRecords.map((item: any, index: number) => {
               return (
-                <li key={item.id} style={brand === undefined || item.brand === brand || brand === "All" ? { margin: "2px 5px" } : { display: "none", margin: "0 5px" }} className="product_item">
+                <li key={item.id} style={brand === undefined || item.brand === brand || brand === "All" ? { margin: "2px 3px" } : { display: "none", margin: "0 5px" }} className="product_item">
                   <div className="product_sale">
                     <p>On Sale</p>
                   </div>
@@ -159,7 +160,12 @@ export const MainPage = () => {
           </ul>
         </div>
       </div>
-      <Footer padding='60px 0' />
+      <section className="contact-area" id="contact">
+            <div className="container" >
+                <div className="row" style={{ marginTop: "2rem" }}>
+                </div>
+            </div>
+        </section>
       <div className="card-footer">
         <div className="row">
           <div className="col-12 ">
@@ -171,9 +177,8 @@ export const MainPage = () => {
           </div>
         </div>
       </div>
-      <footer className="favourites-footer">
-        <p className="footer-paragraph">Copyright &copy; 2021 <b> All Rights Reserved.</b></p>
-      </footer>
+      <Footer />
+     
     </div>
   )
 }

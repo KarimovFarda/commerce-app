@@ -69,9 +69,6 @@ export const Favourites = () => {
                 </div>
             </div>
             <Footer />
-            <footer className="favourites-footer">
-                <p className="footer-paragraph">Copyright &copy; 2021 <b> All Rights Reserved.</b></p>
-            </footer>
         </section>
     )
 }

@@ -380,7 +380,7 @@ ul.product_list {
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
   .product_item {
-    width: 24%;
+    width: calc(25% - 6px);
   }
 }
 
