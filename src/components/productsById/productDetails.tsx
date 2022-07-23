@@ -10,15 +10,15 @@ import axios from 'axios'
 export const ProductDetails = () => {
   const [product, setProduct] = useState<any>()
   let [amount, setAmount] = useState<number>(1)
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const [data, setData] = useState<any>([])
   const [quantity, setQuantity] = useState<any>([])
   const [added, setAdded] = useState<boolean>(false)
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchData = async () => {
-        const response = await axios.get(`https://api.npoint.io/b2204137dc22699575be`);
-        setProduct(response.data);
+      const response = await axios.get(`https://api.npoint.io/b2204137dc22699575be`);
+      setProduct(response.data);
     }
     fetchData();
   }, []);
@@ -97,7 +97,7 @@ export const ProductDetails = () => {
               <li className="cards__item" onClick={() => setAmount(1)}>
                 <div className="card">
                   <div className="card__image card__image--flowers" onClick={() => { console.log(item); navigate(`/products/${directed + 1}`); setAdded(false) }} style={{
-                    backgroundSize: "cover", height: "380px",backgroundImage: `url(${product[item].image_link})`
+                    backgroundSize: "cover", height: "380px", backgroundImage: `url(${product[item].image_link})`
                   }}></div>
                   <div className="card__content">
                     <div className="card__title">Brand : {product[item].brand}</div>

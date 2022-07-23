@@ -9,12 +9,12 @@ export const HeaderCarousel = () => {
             setSliderInfo(response.data);
         }
         fetchData();
-      }, []);
+    }, []);
     return (
         <div id="slider" className="mb-4">
             <div className="slides">
                 {sliderInfo && sliderInfo.map((item: any, index: number) => {
-                     return (
+                    return (
                         <div key={index} className="slider">
                             <div className="legend"></div>
                             <div className="content">

@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react'
 import './productPageNavbarStyle.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { addProducts, getProducts, deleteProducts } from '../../redux/productActions';
-import {  useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 export const ProductPageNavbar = (props: any) => {
   const [display, setDisplay] = useState<string>("none")
   const state = useSelector((state: any) => state);
   const dispatch = useDispatch();
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   useEffect(() => {
     getProducts(1)(dispatch);
   }, [dispatch, state]);
   const updateBasket = () => {
-    deleteProducts(1,state.products[0]._id)(dispatch);         
-         addProducts({
-                productInfo: props.product,
-                totalPrice: props.totalPrice
-              }, 1)(dispatch);
-              navigate('/shopping')
+    deleteProducts(1, state.products[0]._id)(dispatch);
+    addProducts({
+      productInfo: props.product,
+      totalPrice: props.totalPrice
+    }, 1)(dispatch);
+    navigate('/shopping')
   }
   const addBasket = () => {
     addProducts({
@@ -60,7 +60,7 @@ export const ProductPageNavbar = (props: any) => {
             })}
           </ul>
           <a className="button" href="#test" onClick={state.products.length > 0 ? updateBasket : addBasket
-       }>Checkout</a>
+          }>Checkout</a>
         </div>
       </div>
     </div>

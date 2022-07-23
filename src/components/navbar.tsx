@@ -14,7 +14,7 @@ export const Navbar = (props: any) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ justifyContent: "space-between", flexDirection: "row-reverse", margin: "0 25px" }}>
           <ul className="navbar-nav  mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/" style={{display:"flex", alignItems:"center", gap:"5px"}}>
+              <a className="nav-link active" aria-current="page" href="/" style={{ display: "flex", alignItems: "center", gap: "5px" }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16.3458 23H7.62886C5.9611 23 4.71029 22.5671 3.93459 21.7106C3.15889 20.8541 2.85829 19.6118 3.06191 18.0024L3.93459 10.9435C4.18669 8.86353 4.72968 7 8.51122 7H15.4925C19.2644 7 19.8074 8.86353 20.0692 10.9435L20.9418 18.0024C21.1357 19.6118 20.8449 20.8635 20.0692 21.7106C19.2644 22.5671 18.0233 23 16.3458 23ZM8.50152 8.41176C5.70899 8.41176 5.57325 9.48469 5.36963 11.1035L4.49697 18.1623C4.35153 19.3576 4.52605 20.2329 5.02056 20.7694C5.51507 21.3059 6.38774 21.5788 7.62886 21.5788H16.3458C17.5869 21.5788 18.4596 21.3059 18.9541 20.7694C19.4486 20.2329 19.6231 19.3576 19.4777 18.1623L18.605 11.1035C18.4014 9.47528 18.2754 8.41176 15.4731 8.41176H8.50152Z" fill="#292D32" />
                   <path d="M16.2105 10C15.7789 10 15.4211 9.63733 15.4211 9.2V5.46667C15.4211 4.31467 14.7158 3.6 13.5789 3.6H10.4211C9.28421 3.6 8.57895 4.31467 8.57895 5.46667V9.2C8.57895 9.63733 8.22105 10 7.78947 10C7.35789 10 7 9.63733 7 9.2V5.46667C7 3.42933 8.41053 2 10.4211 2H13.5789C15.5895 2 17 3.42933 17 5.46667V9.2C17 9.63733 16.6421 10 16.2105 10Z" fill="#292D32" />
@@ -26,11 +26,11 @@ export const Navbar = (props: any) => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link nav-link-favourites" aria-current="page" href="/favourites" style={{display:"flex", alignItems:"center", gap:"5px"}}><svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M11 19.6496C10.69 19.6496 10.39 19.6096 10.14 19.5196C6.32 18.2096 0.25 13.5596 0.25 6.68961C0.25 3.18961 3.08 0.349609 6.56 0.349609C8.25 0.349609 9.83 1.00961 11 2.18961C12.17 1.00961 13.75 0.349609 15.44 0.349609C18.92 0.349609 21.75 3.19961 21.75 6.68961C21.75 13.5696 15.68 18.2096 11.86 19.5196C11.61 19.6096 11.31 19.6496 11 19.6496ZM6.56 1.84961C3.91 1.84961 1.75 4.01961 1.75 6.68961C1.75 13.5196 8.32 17.3196 10.63 18.1096C10.81 18.1696 11.2 18.1696 11.38 18.1096C13.68 17.3196 20.26 13.5296 20.26 6.68961C20.26 4.01961 18.1 1.84961 15.45 1.84961C13.93 1.84961 12.52 2.55961 11.61 3.78961C11.33 4.16961 10.69 4.16961 10.41 3.78961C9.48 2.54961 8.08 1.84961 6.56 1.84961Z" fill="#292D32"/>
-</svg>
+              <a className="nav-link nav-link-favourites" aria-current="page" href="/favourites" style={{ display: "flex", alignItems: "center", gap: "5px" }}><svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19.6496C10.69 19.6496 10.39 19.6096 10.14 19.5196C6.32 18.2096 0.25 13.5596 0.25 6.68961C0.25 3.18961 3.08 0.349609 6.56 0.349609C8.25 0.349609 9.83 1.00961 11 2.18961C12.17 1.00961 13.75 0.349609 15.44 0.349609C18.92 0.349609 21.75 3.19961 21.75 6.68961C21.75 13.5696 15.68 18.2096 11.86 19.5196C11.61 19.6096 11.31 19.6496 11 19.6496ZM6.56 1.84961C3.91 1.84961 1.75 4.01961 1.75 6.68961C1.75 13.5196 8.32 17.3196 10.63 18.1096C10.81 18.1696 11.2 18.1696 11.38 18.1096C13.68 17.3196 20.26 13.5296 20.26 6.68961C20.26 4.01961 18.1 1.84961 15.45 1.84961C13.93 1.84961 12.52 2.55961 11.61 3.78961C11.33 4.16961 10.69 4.16961 10.41 3.78961C9.48 2.54961 8.08 1.84961 6.56 1.84961Z" fill="#292D32" />
+              </svg>
 
-<span>Favourites</span> <span style={{ color: "white", borderRadius: "50%", fontSize: "0.9rem", padding: "1px 7px", backgroundColor: "#f55a5a" }}>{favourites && favourites.length}</span></a>
+                <span>Favourites</span> <span style={{ color: "white", borderRadius: "50%", fontSize: "0.9rem", padding: "1px 7px", backgroundColor: "#f55a5a" }}>{favourites && favourites.length}</span></a>
             </li>
 
             <li className="nav-item">

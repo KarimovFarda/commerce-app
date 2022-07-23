@@ -30,7 +30,7 @@ export const CardSlider = () => {
           </div>
         )
       })}
-     
+
     </Carousel>
   )
 }

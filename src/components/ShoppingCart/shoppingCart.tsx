@@ -8,7 +8,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 export const ShoppingCart = () => {
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const [totalPrice, setTotalPrice] = useState<number>(0)
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -24,7 +24,7 @@ export const ShoppingCart = () => {
   const [info, setInfo] = useState<any>()
   useEffect(() => {
     fetch("http://localhost:8502/products").then(response => response.json()).then(data => setInfo(data))
-  
+
   }, [info])
 
   return (
@@ -68,7 +68,8 @@ export const ShoppingCart = () => {
                     <td className="col-sm-2 col-md-2">
                       <button type="button" className="btn btn-danger" onClick={(e) => {
                         e.preventDefault(); info[0].productInfo.splice(index, 1); editProducts(info[0], userId, info[0]._id)(dispatch);
-                        ; window.location.reload()}}>
+                        ; window.location.reload()
+                      }}>
                         <span className="fa fa-remove"></span> Remove
                       </button></td>
                   </tr>

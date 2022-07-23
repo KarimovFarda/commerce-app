@@ -17,15 +17,15 @@ import Footer from '../footer'
 export const MainPage = () => {
   const [info, setInfo] = React.useState<any>()
   const [brand, setBrand] = useState<any>()
-  const navigate =useNavigate()
+  const navigate = useNavigate()
 
-useEffect(() => {
-  const fetchData = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
       const response = await axios.get(`https://api.npoint.io/b2204137dc22699575be`);
       setInfo(response.data);
-  }
-  fetchData();
-}, []);
+    }
+    fetchData();
+  }, []);
   const dispatch = useDispatch()
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -97,14 +97,15 @@ useEffect(() => {
           <ul className="product_list list">
             {info && computedRecords.map((item: any, index: number) => {
               return (
-                <li key={item.id} style={brand === undefined || item.brand === brand || brand === "All"  ? { margin: "2px 5px" } : { display: "none", margin: "0 5px" }} className="product_item">
+                <li key={item.id} style={brand === undefined || item.brand === brand || brand === "All" ? { margin: "2px 5px" } : { display: "none", margin: "0 5px" }} className="product_item">
                   <div className="product_sale">
                     <p>On Sale</p>
                   </div>
                   <div className="product_image" style={{ height: "250px" }} >
                     <img alt="product" onClick={() => navigate(`products/${index + 1}`)} src={item.image_link} />
                     <div className="product_buttons">
-                      <button className="product_heart" onClick={() => {addFavouriteProducts({
+                      <button className="product_heart" onClick={() => {
+                        addFavouriteProducts({
                           name: item.name,
                           brand: item.brand,
                           price: String(item.price),
@@ -112,7 +113,7 @@ useEffect(() => {
                           date: String(item.created_at),
                           image: String(item.image_link),
                           productType: String(item.product_type),
-                          index : index
+                          index: index
                         }, 1)(dispatch)
                       }}><i className="fa fa-heart"></i></button>
                       <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
@@ -137,7 +138,8 @@ useEffect(() => {
                       <p className="truncate">{new Date(item.created_at).toLocaleString()}</p>
                     </div>
                     <div className="product_buttons">
-                      <button className="product_heart" onClick={() => {addFavouriteProducts({
+                      <button className="product_heart" onClick={() => {
+                        addFavouriteProducts({
                           name: item.name,
                           brand: item.brand,
                           price: String(item.price),
@@ -145,7 +147,7 @@ useEffect(() => {
                           date: String(item.created_at),
                           image: String(item.image_link),
                           productType: String(item.product_type),
-                          index : index
+                          index: index
                         }, 1)(dispatch)
                       }}><i className="fa fa-heart"></i></button>
                       <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>

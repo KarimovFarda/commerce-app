@@ -10,7 +10,6 @@ export const PaginationComponent = ({ totalPageCount, handlePageChange, currentP
     console.log(elements)
     return (
         <Stack spacing={2} >
-
             <Pagination count={elements.reverse().length} onClick={(e) => {
                 const target = e.target as HTMLInputElement;
                 if (target.innerHTML.includes("path")) {
