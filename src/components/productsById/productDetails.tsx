@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router'
 import ProductPageNavbar from './productPageNavbar'
 import './productDetailsStyle.scss'
 import Footer from '../footer'
-import Comments from './comments'
 import { getProducts } from '../../redux/productActions';
 import { useDispatch } from "react-redux";
 import axios from 'axios'
@@ -62,7 +61,7 @@ export const ProductDetails = () => {
                   </p>
                   {/* <p style={{ fontSize: "12px" }}>{product && product[id - 1].description}</p> */}
 
-                  <p style={{ fontSize: "16px", color: '#687188' }}>{product && product[id - 1].name} məhsulunu 12 ay faizsiz taksit imkanı ilə ayda cəmi ${product && (+product[id - 1].price / 12).toFixed(2)} manat ödəməklə və ya nağd alışda cəmi {product && product[id - 1].price} manata əldə edə bilərsiniz.</p>
+                  <p style={{ fontSize: "16px", color: '#687188' }}>{product && product[id - 1].name} məhsulunu 12 ay faizsiz taksit imkanı ilə ayda cəmi {product && (+product[id - 1].price / 12).toFixed(2)} manat ödəməklə və ya nağd alışda cəmi {product && product[id - 1].price} manata əldə edə bilərsiniz.</p>
 
 
 
@@ -172,7 +171,7 @@ export const ProductDetails = () => {
           <div className='column-3'>
             <div className='container'>
               <p>Qiyməti</p>
-              <h2>{product && "$" + product[id - 1].price}</h2>
+              <h2>{product &&  product[id - 1].price + " AZN"}</h2>
               <div className="selected">
                 <h5> Miqdar : </h5>
                 <div className="select-dropdown ">
@@ -205,7 +204,7 @@ export const ProductDetails = () => {
               <button type="button">Bir kliklə al</button>
             </div>
 
-            <div className='container'>
+            <a className='container' target="_blank" rel='noreferrer' href={product && "https://api.whatsapp.com/send?phone=994559490455&text=Salam, " + product[id - 1].name + " məhsulu ilə maraqlanıram."}>
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M2.64062 23.4555L4.09987 18.1282C3.19962 16.5693 2.72621 14.8002 2.72675 12.9883C2.72946 7.31976 7.34229 2.70801 13.0114 2.70801C15.7625 2.70909 18.3441 3.77997 20.286 5.72292C22.2273 7.66643 23.2965 10.2491 23.2955 12.9964C23.2933 18.665 18.6794 23.2773 13.0114 23.2773C13.0108 23.2773 13.0114 23.2773 13.0114 23.2773H13.007C11.2862 23.2767 9.59454 22.845 8.0925 22.0255L2.64062 23.4555Z" fill="white" />
                 <path fillRule="evenodd" clipRule="evenodd" d="M2.63778 23.7266C2.56628 23.7266 2.49695 23.6985 2.44549 23.6465C2.37778 23.5777 2.35124 23.4775 2.3767 23.3848L3.80616 18.1653C2.91999 16.5913 2.45253 14.8038 2.45362 12.9892C2.45578 7.17058 7.19049 2.4375 13.0085 2.4375C15.8306 2.43858 18.4821 3.53763 20.4749 5.53204C22.4677 7.527 23.5645 10.1779 23.5634 12.9967C23.5613 18.8148 18.826 23.5484 13.0085 23.5484C11.2812 23.5479 9.5722 23.1216 8.05553 22.315L2.70658 23.7174C2.68383 23.7239 2.66108 23.7266 2.63778 23.7266Z" fill="white" />
@@ -215,7 +214,7 @@ export const ProductDetails = () => {
               </svg>
               Whatsapp ilə sifariş edin
 
-            </div>
+            </a>
 
           </div>
         </div>
@@ -229,6 +228,7 @@ export const ProductDetails = () => {
         <ul className="cards suggested_product_cards">
           {product && arr.map((item: any, index:any) => {
             let directed = item
+            console.log(product[item])
             return (
               <li className="cards__item" key={index} onClick={() => setAmount(1)}>
                 <div className="card">
@@ -236,12 +236,32 @@ export const ProductDetails = () => {
                     backgroundSize: "cover", height: "380px", backgroundImage: `url(${product[item].image_link})`
                   }}></div>
                   <div className="card__content">
-                    <div className="card__title">Brand : {product[item].brand}</div>
-                    <h5 className="card__text">{product[item].name}</h5>
+                  <h5 className="card__text">{product[item].name}</h5>
+
+                    <div className="card__title">{product[item].brand && "Brand :" + product[item].brand}</div>
                     <div>
-                    <h6>Price : <span style={{ fontWeight: "bold", color: "#f55a5a" }}>${product[item].price}</span></h6>
+                    <h6>Qiymət : <span style={{ fontWeight: "bold", color: "#f55a5a" }}>{product[item].price} AZN</span></h6>
                     </div>
+
                   </div>
+                  <a>Səbətə at</a>
+
+                  {/* <a href="#test" className={added === true ? "added-btn " : "add-btn"} onClick={(e) => {
+                setAdded(true)
+                setTotalPrice(totalPrice + product[item].price * 1)
+                added === false ?
+                  data.push({
+                    name: product[item].name,
+                    brand: product[item].brand,
+                    price: String(product[item].price),
+                    amount: 1,
+                    imageLink: String(product[item].image_link)
+                  }) : console.log("hi");
+                added === false ? setTotal(total + 1) : console.log("Already added"); e.preventDefault()
+              }}>{added === false ? 'Səbətə at' : 'Əlavə olundu'}</a> */}
+
+                  
+
                 </div>
               </li>
             )

@@ -36,10 +36,7 @@ export const ProductPageNavbar = (props: any) => {
           <ul className="navbar-right" onMouseOver={(e) => { e.preventDefault(); setDisplay("inline-block") }} onMouseOut={() => setDisplay("none")}>
             <li className="list" ><button id="cart" style={{background:"transparent"}} ><i className="fa fa-shopping-cart"></i> Cart <span className="badge">{props.amount}</span></button></li>
           </ul>
-        </div>
-      </nav>
-      <div className="container">
-        <div className="shopping-cart" onMouseOver={() => setDisplay("inline-block")} onMouseOut={() => setDisplay("none")} style={{ opacity: 1, display: display }}>
+          <div className="shopping-cart" onMouseOver={() => setDisplay("inline-block")} onMouseOut={() => setDisplay("none")} style={{ opacity: 1, display: display }}>
           <div className="shopping-cart-header">
             <i className="fa fa-shopping-cart cart-icon"></i><span className="badge">{props.amount}</span>
             <div className="shopping-cart-total">
@@ -62,7 +59,10 @@ export const ProductPageNavbar = (props: any) => {
           <a className="button" href="/shopping" onClick={state.products.length > 0 ? updateBasket : addBasket
           }>Checkout</a>
         </div>
-      </div>
+        </div>
+     
+      </nav>
+        
     </div>
   )
 }

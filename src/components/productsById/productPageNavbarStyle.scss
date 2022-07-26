@@ -19,7 +19,8 @@ $light-text: #ABB0BE;
 
 .product-navbar {
   padding: 20px 0 40px 0;
-  background: #F8F8F8;
+  // background: #F8F8F8;
+  background-color: #FFFFFF;
   font-size: 16px;
 
   .navbar-left {
@@ -29,6 +30,12 @@ $light-text: #ABB0BE;
   .navbar-right {
     float: right;
     padding-bottom: 10px;
+    height: 60px;
+    position: relative;
+    top: -20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
   }
 
   ul {
@@ -62,12 +69,17 @@ $light-text: #ABB0BE;
   white-space: nowrap;
 }
 
+.contain {
+  position: relative;
+}
+
 .shopping-cart {
   background: white;
   width: 350px;
   position: absolute;
   right: 0%;
-  top: 8.2%;
+  transform: translateX(40%);
+  top: 41px;
   border-radius: 3px;
   padding: 20px;
   z-index: 15;
