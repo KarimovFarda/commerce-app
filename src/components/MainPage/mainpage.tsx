@@ -106,7 +106,6 @@ export const MainPage = () => {
                     <img alt="product" onClick={() => navigate(`products/${index + 1}`)} src={item.image_link} />
                     <div className="product_buttons">
                       <button className="product_heart" onClick={() => {
-                        console.log(itemsPerPage * (currentPage - 1) + index)
                         addFavouriteProducts({
                           name: item.name,
                           brand: item.brand,

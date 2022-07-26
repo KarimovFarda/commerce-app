@@ -35,7 +35,7 @@ export const ShoppingCart = () => {
           <CircularProgress color="inherit" style={{ marginRight: "0.5rem" }} />
           <h3 className="data-loading ml-3">  Loading ... </h3>
         </Backdrop> : 
-          info && info[0].productInfo == false ? <div className='empty-cart'>
+          info && !!info[0].productInfo === false ? <div className='empty-cart'>
           <svg width="98" height="100" viewBox="0 0 98 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_232_4784)">
               <path d="M39.3555 82.8331C40.0671 80.7282 41.4204 78.8995 43.225 77.6042C45.0295 76.3089 47.1946 75.6123 49.4155 75.6123C51.6365 75.6123 53.8016 76.3089 55.6061 77.6042C57.4107 78.8995 58.764 80.7282 59.4756 82.8331" stroke="#CDCDCD" stroke-width="4" stroke-linecap="round" />

@@ -38,7 +38,6 @@ export const editProducts =
     request
       .edit(`products/${productId}`, payload)
       .then((response) => {
-        console.log("edited data", response.data);
         dispatch({
           type: PRODUCTS_ACTIONS.EDIT_PRODUCTS,
           payload: response,

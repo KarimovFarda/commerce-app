@@ -29,12 +29,12 @@ export const ProductPageNavbar = (props: any) => {
   return (
     <div>
       <nav className="product-navbar">
-        <div className="contain">
+        <div className="contain container" style={{marginTop:"0"}}>
           <ul className="navbar-left">
             <li className="list"><a href="/">Home</a></li>
           </ul>
           <ul className="navbar-right" onMouseOver={(e) => { e.preventDefault(); setDisplay("inline-block") }} onMouseOut={() => setDisplay("none")}>
-            <li className="list" ><button id="cart" ><i className="fa fa-shopping-cart"></i> Cart <span className="badge">{props.amount}</span></button></li>
+            <li className="list" ><button id="cart" style={{background:"transparent"}} ><i className="fa fa-shopping-cart"></i> Cart <span className="badge">{props.amount}</span></button></li>
           </ul>
         </div>
       </nav>

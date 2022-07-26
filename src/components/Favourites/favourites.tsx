@@ -25,7 +25,6 @@ export const Favourites = () => {
                 <div className="row">
                     {favourites && favourites.map((item: any) => {
                         if (item.rating === "null") { item.rating = 0 }
-                        console.log(item)
                         return (
                             <div className="col-md-6 col-lg-4">
                                 <div className="single-product">

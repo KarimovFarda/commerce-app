@@ -34,7 +34,6 @@ $light-text: #ABB0BE;
   ul {
     .list {
       display: inline;
-      padding-left: 20px;
 
       a {
         color: #777777;
@@ -48,10 +47,7 @@ $light-text: #ABB0BE;
   }
 }
 
-.contain {
-  margin: auto;
-  width: 80%;
-}
+
 
 .badge {
   background-color: $main-color;
