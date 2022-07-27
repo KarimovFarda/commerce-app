@@ -33,7 +33,6 @@ export const ProductDetails = () => {
     setData(data)
     setQuantity(quantity)
   }, [data, quantity, total])
-  console.log(product && product[id - 1])
   return (
     <div style={product ? {} : { position: "fixed" }}>
       <div>
@@ -113,24 +112,8 @@ export const ProductDetails = () => {
                       <p>14 gün ərzində
                         qaytarılma</p>
                     </div>
-                    <div className='card'>
-                      <svg className='card-img' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.7859 18.957H5.21927C3.14427 18.957 1.46094 17.2737 1.46094 15.1987V9.59037C1.46094 7.51537 3.14427 5.83203 5.21927 5.83203H14.7859C16.8609 5.83203 18.5443 7.51537 18.5443 9.59037V10.7904C18.5443 11.132 18.2609 11.4154 17.9193 11.4154H16.2359C15.9443 11.4154 15.6776 11.5237 15.4859 11.7237L15.4776 11.732C15.2443 11.957 15.1359 12.2653 15.1609 12.582C15.2109 13.132 15.7359 13.5737 16.3359 13.5737H17.9193C18.2609 13.5737 18.5443 13.857 18.5443 14.1987V15.1903C18.5443 17.2737 16.8609 18.957 14.7859 18.957ZM5.21927 7.08203C3.83594 7.08203 2.71094 8.20704 2.71094 9.59037V15.1987C2.71094 16.582 3.83594 17.707 5.21927 17.707H14.7859C16.1693 17.707 17.2943 16.582 17.2943 15.1987V14.832H16.3359C15.0776 14.832 14.0109 13.8987 13.9109 12.6987C13.8443 12.0154 14.0943 11.3404 14.5943 10.8487C15.0276 10.407 15.6109 10.1654 16.2359 10.1654H17.2943V9.59037C17.2943 8.20704 16.1693 7.08203 14.7859 7.08203H5.21927Z" fill="#4F4F4F" />
-                        <path d="M2.08594 10.966C1.74427 10.966 1.46094 10.6827 1.46094 10.341V6.53273C1.46094 5.29107 2.24427 4.16602 3.4026 3.72435L10.0193 1.22435C10.7026 0.96602 11.4609 1.05773 12.0526 1.47439C12.6526 1.89106 13.0026 2.56605 13.0026 3.29105V6.45771C13.0026 6.79938 12.7193 7.08271 12.3776 7.08271C12.0359 7.08271 11.7526 6.79938 11.7526 6.45771V3.29105C11.7526 2.97439 11.6026 2.68271 11.3359 2.49938C11.0693 2.31604 10.7526 2.27437 10.4526 2.39104L3.83594 4.89104C3.16094 5.14937 2.7026 5.80773 2.7026 6.53273V10.341C2.71094 10.691 2.4276 10.966 2.08594 10.966Z" fill="#4F4F4F" />
-                        <path d="M16.3262 14.8346C15.0679 14.8346 14.0012 13.9013 13.9012 12.7013C13.8346 12.0096 14.0846 11.3346 14.5846 10.843C15.0096 10.4096 15.5929 10.168 16.2179 10.168H17.9512C18.7762 10.193 19.4096 10.8429 19.4096 11.6429V13.3597C19.4096 14.1597 18.7762 14.8096 17.9762 14.8346H16.3262ZM17.9346 11.418H16.2262C15.9346 11.418 15.6679 11.5263 15.4762 11.7263C15.2346 11.9596 15.1179 12.2763 15.1512 12.5929C15.2012 13.1429 15.7262 13.5846 16.3262 13.5846H17.9596C18.0679 13.5846 18.1679 13.4847 18.1679 13.3597V11.6429C18.1679 11.5179 18.0679 11.4263 17.9346 11.418Z" fill="#4F4F4F" />
-                        <path d="M11.6693 10.623H5.83594C5.49427 10.623 5.21094 10.3397 5.21094 9.99805C5.21094 9.65638 5.49427 9.37305 5.83594 9.37305H11.6693C12.0109 9.37305 12.2943 9.65638 12.2943 9.99805C12.2943 10.3397 12.0109 10.623 11.6693 10.623Z" fill="#4F4F4F" />
-                      </svg>
-
-                      <p>Qapıda ödəmə</p>
-                    </div>
-                    <div className='card'>
-                      <svg className='card-img' width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.0937 2.34065C19.0937 1.88874 18.9142 1.45534 18.5945 1.13579C18.2748 0.81624 17.8413 0.636719 17.3892 0.636719H7.16193C6.70986 0.636719 6.2763 0.81624 5.95664 1.13579C5.63697 1.45534 5.45739 1.88874 5.45739 2.34065V4.04458H4.2983C4.04291 4.04481 3.79084 4.1024 3.56071 4.2131C3.33058 4.3238 3.12828 4.48477 2.96875 4.68413L1.2858 6.78564C1.04365 7.08802 0.911783 7.46384 0.911932 7.85117V10.2923C0.911932 10.7442 1.09152 11.1777 1.41118 11.4972C1.73085 11.8167 2.1644 11.9963 2.61648 11.9963H3.18466C3.18466 12.5988 3.42411 13.1767 3.85033 13.6028C4.27655 14.0288 4.85462 14.2682 5.45739 14.2682C6.06015 14.2682 6.63823 14.0288 7.06445 13.6028C7.49067 13.1767 7.73011 12.5988 7.73011 11.9963H13.4119C13.4113 12.2991 13.4712 12.599 13.5882 12.8783C13.7051 13.1577 13.8768 13.4108 14.093 13.6229C14.3093 13.835 14.5657 14.0017 14.8474 14.1133C15.129 14.2249 15.4301 14.279 15.733 14.2726C16.0358 14.2661 16.3344 14.1992 16.611 14.0758C16.8876 13.9524 17.1368 13.7749 17.3438 13.5538C17.5508 13.3328 17.7116 13.0725 17.8166 12.7885C17.9215 12.5044 17.9686 12.2022 17.9551 11.8997C18.288 11.7826 18.5763 11.5651 18.7803 11.2771C18.9842 10.9892 19.0938 10.6451 19.0937 10.2923V2.34065ZM17.6233 10.8103C17.4178 10.4741 17.1284 10.1971 16.7834 10.0065C16.4384 9.81592 16.0498 9.71836 15.6557 9.7234C15.2615 9.72844 14.8755 9.83591 14.5355 10.0352C14.1955 10.2346 13.9133 10.5189 13.7165 10.8603H7.42557C7.22568 10.5153 6.93889 10.2286 6.59375 10.0288V2.34065C6.59375 2.19001 6.65361 2.04555 6.76017 1.93903C6.86672 1.83251 7.01124 1.77267 7.16193 1.77267H17.3892C17.5399 1.77267 17.6844 1.83251 17.791 1.93903C17.8975 2.04555 17.9574 2.19001 17.9574 2.34065V10.2923C17.9575 10.4017 17.926 10.5087 17.8667 10.6006C17.8075 10.6925 17.7229 10.7653 17.6233 10.8103ZM5.45739 9.72436C5.05845 9.72437 4.66654 9.82935 4.32106 10.0288C3.97557 10.2282 3.68867 10.5149 3.4892 10.8603H2.61648C2.46579 10.8603 2.32127 10.8005 2.21471 10.694C2.10816 10.5874 2.0483 10.443 2.0483 10.2923V7.85003C2.04852 7.72114 2.09261 7.59615 2.1733 7.49562L3.85511 5.3941C3.90825 5.32758 3.97567 5.27385 4.05238 5.23688C4.12909 5.19992 4.21314 5.18066 4.2983 5.18054H5.45739V9.72436ZM15.6847 10.8603C15.986 10.8603 16.2751 10.98 16.4882 11.193C16.7013 11.4061 16.821 11.695 16.821 11.9963C16.821 12.2975 16.7013 12.5865 16.4882 12.7995C16.2751 13.0125 15.986 13.1322 15.6847 13.1322C15.3833 13.1322 15.0942 13.0125 14.8811 12.7995C14.668 12.5865 14.5483 12.2975 14.5483 11.9963C14.5483 11.695 14.668 11.4061 14.8811 11.193C15.0942 10.98 15.3833 10.8603 15.6847 10.8603ZM5.45739 10.8603C5.75877 10.8603 6.04781 10.98 6.26092 11.193C6.47403 11.4061 6.59375 11.695 6.59375 11.9963C6.59375 12.2975 6.47403 12.5865 6.26092 12.7995C6.04781 13.0125 5.75877 13.1322 5.45739 13.1322C5.156 13.1322 4.86697 13.0125 4.65386 12.7995C4.44075 12.5865 4.32102 12.2975 4.32102 11.9963C4.32102 11.695 4.44075 11.4061 4.65386 11.193C4.86697 10.98 5.156 10.8603 5.45739 10.8603Z" fill="#4F4F4F" />
-                      </svg>
-
-                      <p>3 saata pulsuz
-                        çatdırılma</p>
-                    </div>
+               
+                  
                   </div>
                 </div>
               </div>
@@ -223,43 +206,42 @@ export const ProductDetails = () => {
 
       </div>
 
-      <div className='container'>
+      <div className='container' style={{marginTop:"120px"}}>
         <h3>Digər məhsullar </h3>
         <ul className="cards suggested_product_cards">
           {product && arr.map((item: any, index:any) => {
             let directed = item
-            console.log(product[item])
             return (
               <li className="cards__item" key={index} onClick={() => setAmount(1)}>
                 <div className="card">
                   <div className="card__image card__image--flowers" onClick={() => { navigate(`/products/${directed + 1}`); setAdded(false) }} style={{
-                    backgroundSize: "cover", height: "380px", backgroundImage: `url(${product[item].image_link})`
+                    backgroundSize: "cover", height: "320px", backgroundImage: `url(${product[item].image_link})`
                   }}></div>
                   <div className="card__content">
                   <h5 className="card__text">{product[item].name}</h5>
 
-                    <div className="card__title">{product[item].brand && "Brand :" + product[item].brand}</div>
+                    {/* <div className="card__title">{product[item].brand && "Brand :" + product[item].brand}</div> */}
                     <div>
                     <h6>Qiymət : <span style={{ fontWeight: "bold", color: "#f55a5a" }}>{product[item].price} AZN</span></h6>
                     </div>
 
                   </div>
-                  <a>Səbətə at</a>
+                  <a href="#test" className={added === true ? "added-btn " : "add-btn"} onClick={(e) => {
+                setTotalPrice(totalPrice + product[item].price * 1);
+                 data.push({
+                   name: product[item].name,
+                   brand: product[item].brand,
+                   price: String(product[item].price),
+                   amount: 1,
+                   imageLink: String(product[item].image_link)
+                 })
+              setTotal(total + 1)
+               e.preventDefault()
+               console.log("das");
 
-                  {/* <a href="#test" className={added === true ? "added-btn " : "add-btn"} onClick={(e) => {
-                setAdded(true)
-                setTotalPrice(totalPrice + product[item].price * 1)
-                added === false ?
-                  data.push({
-                    name: product[item].name,
-                    brand: product[item].brand,
-                    price: String(product[item].price),
-                    amount: 1,
-                    imageLink: String(product[item].image_link)
-                  }) : console.log("hi");
-                added === false ? setTotal(total + 1) : console.log("Already added"); e.preventDefault()
-              }}>{added === false ? 'Səbətə at' : 'Əlavə olundu'}</a> */}
+              }}>Səbətə at</a>
 
+             
                   
 
                 </div>
@@ -269,72 +251,8 @@ export const ProductDetails = () => {
         </ul>
 
       </div>
-      {/* <div className="wrapper" style={product ? { opacity: "1" } : { opacity: "0" }}>
-        <div className="product group" style={product ? { opacity: "1" } : { opacity: "0" }}> */}
-      {/* <div className="col-1-2 product-image">
-            <div className="bg" style={product && { backgroundImage: `url(${product && product[id - 1].image_link})`, marginTop: "5rem" }}></div>
-          </div> */}
-      {/* <div className="col-2-2 product-info mt-5">
-            <h2>{product && product[id - 1].name}</h2>
-            <h2>${product && product[id - 1].price}</h2>
-            <div className="selected">
-              <h5> Amount : </h5>
-            </div>
-            <div className="select-dropdown ">
-              <i className="fas fa-minus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount === 1 ? 1 : amount - 1)}></i>
-              <span style={{ fontSize: "1.5rem", fontWeight: "bold" }} >{amount}</span>
-              <i className="fas fa-plus p-4" style={{ color: "#f55a5a", fontSize: "1.6rem", cursor: "pointer" }} onClick={() => setAmount(amount + 1)}></i>
-            </div>
-            <br />
-            <a href="#test" className={added === true ? "added-btn " : "add-btn"} onClick={(e) => {
-              setAdded(true)
-              setTotalPrice(totalPrice + product[id - 1].price * amount)
-              added === false ?
-                data.push({
-                  name: product[id - 1].name,
-                  brand: product[id - 1].brand,
-                  price: String(product[id - 1].price),
-                  amount: amount,
-                  imageLink: String(product[id - 1].image_link)
-                }) : console.log("hi");
-              added === false ? setTotal(total + 1) : console.log("Already added"); e.preventDefault()
-            }}>{added === false ? 'Add To Cart' : 'Added Successfully'}</a>
-            <p style={{ fontSize: "13px" }}>Tags :
-              {product && product[id - 1].tag_list.map((item: any) => {
-                return (
-                  <span>#{item}</span>
-                )
-              })}
-            </p>
-            <p style={{ fontSize: "13px" }}>Product Type :
-              <a href={product && product[id - 1].product_link}>{product && product[id - 1].product_type}</a>
-            </p>
-            <p style={{ fontSize: "12px" }}>{product && product[id - 1].description}</p>
-          </div> */}
-      {/* </div> */}
-      {/* <h3 style={{ marginLeft: "1rem" }}> Suggested Products </h3>
-        <ul className="cards suggested_product_cards">
-          {product && arr.map((item: any) => {
-            let directed = item
-            return (
-              <li className="cards__item" onClick={() => setAmount(1)}>
-                <div className="card">
-                  <div className="card__image card__image--flowers" onClick={() => { navigate(`/products/${directed + 1}`); setAdded(false) }} style={{
-                    backgroundSize: "cover", height: "380px", backgroundImage: `url(${product[item].image_link})`
-                  }}></div>
-                  <div className="card__content">
-                    <div className="card__title">Brand : {product[item].brand}</div>
-                    <h5 className="card__text">{product[item].name}</h5>
-                    <h6>Price : <span style={{ fontWeight: "bold", color: "#f55a5a" }}>${product[item].price}</span></h6>
-                  </div>
-                </div>
-              </li>
-            )
-          })}
-        </ul> */}
-      {/* </div> */}
-      {/* <h2 style={{ paddingLeft: "2rem", marginTop: "2rem" }}>Comments</h2>
-      <Comments /> */}
+     
+     
 
       <Footer padding="0 0 20px 0" />
 

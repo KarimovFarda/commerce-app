@@ -65,6 +65,11 @@ $gray-lightest: lighten($gray-lighter, 4%);
   clear: both;
 }
 
+.product-container{
+  position: relative;
+  top: 100px;
+  margin-top: 0 !important; 
+}
 .product-container+.container {
   padding: 0;
 
@@ -107,7 +112,9 @@ $gray-lightest: lighten($gray-lighter, 4%);
     width: 100%;
   }
 }
-
+.product-image{
+  height: 440px;
+}
 .product-image .bg {
   background-size: cover;
   background-position: center top;
@@ -344,7 +351,7 @@ select:focus {
 
   .cards-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 30px;
     gap: 5px;
 
@@ -516,7 +523,7 @@ select:focus {
   color: #eee;
   display: inline-block;
   font-size: 14px;
-  padding: 15px 100px;
+  padding: 15px 0;
   text-align: center;
   text-decoration: none;
   transition: all 400ms ease;
@@ -531,7 +538,7 @@ select:focus {
   color: #eee;
   display: inline-block;
   font-size: 14px;
-  padding: 15px 100px;
+  padding: 15px 0;
   text-align: center;
   text-decoration: none;
   transition: all 400ms ease;
@@ -639,7 +646,7 @@ footer h3 {
     color: #eee;
     display: inline-block;
     font-size: 14px;
-    padding: 15px 100px;
+    padding: 15px 0;
     text-align: center;
     text-decoration: none;
     transition: all 400ms ease;

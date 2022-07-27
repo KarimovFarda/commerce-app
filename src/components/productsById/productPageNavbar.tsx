@@ -41,7 +41,7 @@ export const ProductPageNavbar = (props: any) => {
             <i className="fa fa-shopping-cart cart-icon"></i><span className="badge">{props.amount}</span>
             <div className="shopping-cart-total">
               <span className="lighter-text">Total:</span>
-              <span className="main-color-text">${props.totalPrice}</span>
+              <span className="main-color-text"> {props.totalPrice}AZN </span>
             </div>
           </div>
           <ul className="shopping-cart-items">
@@ -50,7 +50,7 @@ export const ProductPageNavbar = (props: any) => {
                 <li className="clearfix list">
                   <img style={{ width: "30%" }} src={item.imageLink} alt="item1" />
                   <span className="item-name">{item.name}</span>
-                  <span className="item-price">${item.price}</span>
+                  <span className="item-price">{item.price} AZN</span>
                   <span className="item-quantity">Quantity: {item.amount}</span>
                 </li>
               )
