@@ -25,6 +25,8 @@ export const MainPage = () => {
       setInfo(response.data);
     }
     fetchData();
+
+  
   }, []);
   const dispatch = useDispatch()
   const useStyles = makeStyles((theme: Theme) =>

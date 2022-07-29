@@ -61,7 +61,7 @@ export const Payment = () => {
                 </div>
             </div>
             <Footer />
-       
+
         </div>
     )
 }

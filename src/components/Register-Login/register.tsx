@@ -20,6 +20,8 @@ export const Register = () => {
                 navigate("/login")
             })
     }
+
+    
     return (
         <div className="auth-register-contain">
             <div className="forms-container">

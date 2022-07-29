@@ -2,8 +2,9 @@ import mongoose from 'mongoose'
 import express from 'express';
 import cors from 'cors';
 import ROUTES from './routes';
+import 'dotenv/config'
 
-const uri = "mongodb+srv://fardaKarimov:B4M9c6RLmUjYBnJF@cluster0.fohsq.mongodb.net/test";
+const uri = `${process.env.MONGODB_URL}`;
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

@@ -24,7 +24,6 @@ export const ShoppingCart = () => {
   const [info, setInfo] = useState<any>()
   useEffect(() => {
     fetch("http://localhost:8502/products").then(response => response.json()).then(data => setInfo(data))
-
   }, [info])
 
   return (

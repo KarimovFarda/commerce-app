@@ -13,7 +13,7 @@ export const Login = () => {
       password: password,
     }).then((response) => {
       localStorage.setItem("token", response.data.token);
-      navigate("/products");
+      navigate("/");
     })
   }
   return (
@@ -32,7 +32,7 @@ export const Login = () => {
             </div>
             <input className="auth-input btn-button solid" type="submit" value="Login" />
 
-            <p>Don't have an account? <Link to="/" style={{ textDecoration: "none" }}> Register</Link></p>
+            <p>Don't have an account? <Link to="/register" style={{ textDecoration: "none" }}> Register</Link></p>
           </form>
         </div>
       </div>
