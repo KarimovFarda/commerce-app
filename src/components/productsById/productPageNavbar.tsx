@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import './productPageNavbarStyle.scss'
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { addProducts, getProducts, deleteProducts } from '../../redux/productActions';
 import { useNavigate } from 'react-router'
 export const ProductPageNavbar = (props: any) => {
   const [display, setDisplay] = useState<string>("none")
   const state = useSelector((state: any) => state);
-  const dispatch = useDispatch();
   const navigate = useNavigate()
   useEffect(() => {
-    getProducts(1)(dispatch);
-  }, [dispatch, state]);
+    getProducts(1);
+  }, [ state]);
   const updateBasket = () => {
-    deleteProducts(1, state.products[0]._id)(dispatch);
+    deleteProducts(1, state.products[0]._id);
     addProducts({
       productInfo: props.product,
       totalPrice: props.totalPrice
-    }, 1)(dispatch);
+    }, 1);
     navigate('/shopping')
   }
   const addBasket = () => {
     addProducts({
       productInfo: props.product,
       totalPrice: props.totalPrice
-    }, 1)(dispatch);
+    }, 1);
     navigate('/shopping')
   }
   return (

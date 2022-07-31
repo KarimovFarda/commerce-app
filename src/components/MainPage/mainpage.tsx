@@ -7,7 +7,6 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import HeaderCarousel from './carousel'
 import Carousel from "react-multi-carousel";
-import { useDispatch } from 'react-redux'
 import { addFavouriteProducts } from '../../redux/favouritesAction'
 import "react-multi-carousel/lib/styles.css";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -28,7 +27,6 @@ export const MainPage = () => {
 
   
   }, []);
-  const dispatch = useDispatch()
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       backdrop: {
@@ -117,7 +115,7 @@ export const MainPage = () => {
                           image: String(item.image_link),
                           productType: String(item.product_type),
                           index: itemsPerPage * (currentPage - 1) + index
-                        }, 1)(dispatch)
+                        }, 1)
                       }}><i className="fa fa-heart"></i></button>
                       <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
                       <div className="quick_view">
@@ -151,7 +149,7 @@ export const MainPage = () => {
                           image: String(item.image_link),
                           productType: String(item.product_type),
                           index: itemsPerPage * currentPage + index
-                        }, 1)(dispatch)
+                        }, 1)
                       }}><i className="fa fa-heart"></i></button>
                       <button className="add_to_cart" onClick={() => navigate(`products/${index + 1}`)}><i className="fa fa-shopping-cart"></i></button>
                     </div>

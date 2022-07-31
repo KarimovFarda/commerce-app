@@ -4,7 +4,6 @@ import ProductPageNavbar from './productPageNavbar'
 import './productDetailsStyle.scss'
 import Footer from '../footer'
 import { getProducts } from '../../redux/productActions';
-import { useDispatch } from "react-redux";
 import axios from 'axios'
 export const ProductDetails = () => {
   const [product, setProduct] = useState<any>()
@@ -13,7 +12,6 @@ export const ProductDetails = () => {
   const [data, setData] = useState<any>([])
   const [quantity, setQuantity] = useState<any>([])
   const [added, setAdded] = useState<boolean>(false)
-  const dispatch = useDispatch();
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`https://api.npoint.io/b2204137dc22699575be`);
@@ -27,8 +25,8 @@ export const ProductDetails = () => {
   const arr = [+id + 1, +id + 2, +id + 3, +id + 4];
   const [totalPrice, setTotalPrice] = useState<any>(0)
   useEffect(() => {
-    getProducts(1)(dispatch);
-  }, [dispatch]);
+    getProducts(1)
+  }, []);
   useEffect(() => {
     setData(data)
     setQuantity(quantity)

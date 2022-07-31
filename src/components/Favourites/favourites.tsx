@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import './favouritesStyle.scss'
 import ShoppingNavbar from '../ShoppingCart/shoppingNavbar'
 import { deleteFavouriteProducts } from '../../redux/favouritesAction'
-import { useDispatch } from 'react-redux'
 import Footer from '../footer'
 import { useNavigate } from 'react-router'
 export const Favourites = () => {
@@ -11,7 +10,6 @@ export const Favourites = () => {
     useEffect(() => {
         fetch("http://localhost:8502/favourites").then(response => response.json()).then(data => setFavourites(data))
     }, [favourites])
-    const dispatch = useDispatch()
     return (
         <section className="section-products">
             <ShoppingNavbar />
@@ -36,7 +34,7 @@ export const Favourites = () => {
                                                 <span className="text-button">Go to Product</span>
                                             </div>
                                             <div className="item">
-                                                <button className="icon-button" onClick={() => { deleteFavouriteProducts(1, item._id)(dispatch) }}><i className="fas fa-trash"></i></button>
+                                                <button className="icon-button" onClick={() => { deleteFavouriteProducts(1, item._id) }}><i className="fas fa-trash"></i></button>
                                                 <span className="text-button" >Remove product</span>
                                             </div>
                                         </div>
